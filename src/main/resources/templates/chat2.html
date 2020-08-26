@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ytao-websocket</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style type="text/css">
+        #msgContent{
+            line-height:200%;
+            width: 500px;
+            height: 300px;
+            resize: none;
+            border-color: #FF9900;
+        }
+        .clean{
+            background-color: white;
+        }
+        .send{
+            border-radius: 10%;
+            background-color: #2BD56F;
+        }
+        @media screen and (max-width: 600px) {
+            #msgContent{
+                line-height:200%;
+                width: 100%;
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<script>
+    var socket;
+    var URL = "ws://127.0.0.1:8806/ytao";
+
+    connect();
+
+    function connect() {
+        $("#status").html("<span>连接中.....</span>");
+        window.WebSocket = !window.WebSocket == true? window.MozWebSocket : window.WebSocket;
+        if(window.WebSocket){
+            socket = new WebSocket(URL);
+            socket.onmessage = function(event){
+                var msg = event.data + "\n";
+                addMsgContent(msg);
+            };
+
+            socket.onopen = function(){
+                $("#status").html("<span style='background-color: #44b549'>WebSocket已连接</span>");
+            };
+
+            socket.onclose = function(){
+                $("#status").html("<span style='background-color: red'>WebSocket已断开连接</span>");
+                setTimeout("connect()", 3000);
+            };
+        }else{
+            $("#status").html("<span style='background-color: red'>该浏览器不支持WebSocket协议！</span>");
+        }
+    }
+
+    function addMsgContent(msg) {
+        var contet = $("#msgContent").val() + msg;
+        $("#msgContent").val(contet)
+    }
+
+    function clean() {
+        $("#msgContent").val("");
+    }
+
+    function getUserName() {
+        var n = $("input[name=userName]").val();
+        if (n == "")
+            n = "匿名";
+        return n;
+    }
+
+    function send(){
+        var message = $("input[name=message]").val();
+        if(!window.WebSocket) return;
+        if ($.trim(message) == ""){
+            alert("不能发送空消息！");
+            return;
+        }
+        if(socket.readyState == WebSocket.OPEN){
+            var msg = "【我】" + message + "\n";
+            this.addMsgContent(msg);
+            socket.send("【"+getUserName()+"】"+message);
+            $("input[name=message]").val("");
+        }else{
+            alert("无法建立WebSocket连接！");
+        }
+    }
+
+    $(document).keyup(function(){
+        if(event.keyCode ==13){
+            send()
+        }
+    });
+</script>
+<body>
+<div style="text-align: center;">
+    <div style="text-align: center;background-color: rgba(129,86,255,0.35);margin:0 auto;border:1px solid #000;width:600px;height:650px">
+        <div id="status">
+            <span>连接中.....</span>
+        </div>
+        <div>
+            <h2>信息面板</h2>
+            <textarea id="msgContent" cols="60" rows="30" readonly="readonly"></textarea>
+        </div>
+        <div>
+            <input class="clean" type="button" value="清除聊天纪录" onclick="clean()" />
+            <input type="text" name="userName" value="" placeholder="用户名"/>
+        </div>
+        <hr>
+        <div>
+            <form onsubmit="return false">
+                <input type="text" name="message" value="" placeholder="请输入消息"/>
+                <input class="send" type="button" name="msgBtn" value="send" onclick="send()"/>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
