@@ -11,7 +11,7 @@ import java.util.Date;
 
 public class SpringBootQuartzJobDemo implements Job {
 
-    @Autowired
+    //@Autowired
     CommonsUtil4Quartz commonsUtil4Quartz;// 用于模拟任务中的业务对象。 也可能是数据访问对象，或其他类型的对象。
 
     @Override

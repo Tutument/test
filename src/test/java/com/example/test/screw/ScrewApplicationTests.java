@@ -61,7 +61,7 @@ public class ScrewApplicationTests {
         List<String> ignoreSuffix = Arrays.asList("_test", "czb_");
         return ProcessConfig.builder()
                 //根据名称指定表生成
-                .designatedTableName(Arrays.asList("backups_seal"))
+                .designatedTableName(Arrays.asList("user","user1"))
                 //根据表前缀生成
                 .designatedTablePrefix(new ArrayList<>())
                 //根据表后缀生成

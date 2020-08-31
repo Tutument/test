@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 /**
  * 重写的工厂对象。
  */
-@Component
+//@Component
 public class CustomJobFactory extends AdaptableJobFactory {
 
     /**

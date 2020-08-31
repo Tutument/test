@@ -11,7 +11,7 @@ import org.springframework.scheduling.quartz.SchedulerFactoryBean;
  * 初始化类
  * Quartz环境初始化。
  */
-@Configuration
+//@Configuration
 public class QuartzConfiguration {
 
     /**
@@ -26,7 +26,7 @@ public class QuartzConfiguration {
      * 需要重写Factory相关代码。实现Spring容器管理JobDetail。
      * @return
      */
-    @Bean
+   // @Bean
     public JobDetailFactoryBean initJobDetailFactoryBean(){
         JobDetailFactoryBean factoryBean =
                 new JobDetailFactoryBean();
@@ -42,7 +42,7 @@ public class QuartzConfiguration {
      * 实际上，CronTrigger是用于管理一个Cron表达式的类型。
      * @return
      */
-    @Bean(name="cronTriggerFactoryBean1")
+    //@Bean(name="cronTriggerFactoryBean1")
     public CronTriggerFactoryBean initCronTriggerFactoryBean(){
         CronTriggerFactoryBean factoryBean =
                 new CronTriggerFactoryBean();
@@ -61,7 +61,7 @@ public class QuartzConfiguration {
      * @param cronTriggerFactoryBean - 上一个方法初始化的CronTriggerFactoryBean
      * @return
      */
-    @Bean
+    //@Bean
     public SchedulerFactoryBean initSchedulerFactoryBean(CustomJobFactory customJobFactory, CronTriggerFactoryBean[] cronTriggerFactoryBean){
         SchedulerFactoryBean factoryBean = new SchedulerFactoryBean();
         CronTrigger[] triggers = new CronTrigger[cronTriggerFactoryBean.length];
