@@ -1,4 +1,4 @@
-package com.example.test.websocket.one;
+package com.example.test.websocketNetty.one;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;

@@ -1,4 +1,4 @@
-package com.example.test.websocket2;
+package com.example.test.websocket;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

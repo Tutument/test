@@ -1,4 +1,4 @@
-package com.example.test.websocket;
+package com.example.test.websocketNetty;
 
 import java.io.IOException;
 import java.util.ArrayList;
