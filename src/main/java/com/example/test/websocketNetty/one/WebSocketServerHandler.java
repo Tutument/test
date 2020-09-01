@@ -44,8 +44,10 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> 
         if (channelHandlerContextConcurrentHashMap.size() > 1){
             for (String key : channelHandlerContextConcurrentHashMap.keySet()) {
                 ChannelHandlerContext current = channelHandlerContextConcurrentHashMap.get(key);
-                if (channelHandlerContext == current)
+                if (channelHandlerContext == current){
                     continue;
+                }
+
                 current.flush();
             }
         }else {
@@ -70,11 +72,13 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> 
         );
         handshaker = factory.newHandshaker(request);
 
-        if (handshaker == null)
+        if (handshaker == null){
             WebSocketServerHandshakerFactory.sendUnsupportedVersionResponse(channelHandlerContext.channel());
-        else
+        } else{
             // 响应握手消息给客户端
             handshaker.handshake(channelHandlerContext.channel(), request);
+        }
+
 
     }
 
@@ -119,8 +123,9 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> 
                 responseMsg = msg;
                 for (String key : channelHandlerContextConcurrentHashMap.keySet()) {
                     ChannelHandlerContext current = channelHandlerContextConcurrentHashMap.get(key);
-                    if (channelHandlerContext == current)
+                    if (channelHandlerContext == current){
                         continue;
+                    }
                     Channel channel = current.channel();
                     channel.write(
                             new TextWebSocketFrame(responseMsg)
@@ -129,8 +134,9 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> 
             }else {
                 // 自动回复
                 responseMsg = this.answer(msg);
-                if(responseMsg == null)
+                if(responseMsg == null){
                     responseMsg = "暂时无法回答你的问题 ->_->";
+                }
                 System.out.println("回复消息："+responseMsg);
                 Channel channel = channelHandlerContext.channel();
                 channel.write(
@@ -143,8 +149,9 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> 
 
     private String answer(String msg){
         for (String key : replyMap.keySet()) {
-            if (msg.contains(key))
+            if (msg.contains(key)){
                 return replyMap.get(key);
+            }
         }
         return null;
     }
