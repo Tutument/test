@@ -43,7 +43,6 @@ public class WebSocketServer {
                     // 开启心跳机制
                     .childOption(ChannelOption.SO_KEEPALIVE, true)
                     .handler(new ChannelInitializer<NioServerSocketChannel>() {
-                        @Override
                         protected void initChannel(NioServerSocketChannel ch) {
                             System.out.println("WebSocket服务端启动中...");
                         }

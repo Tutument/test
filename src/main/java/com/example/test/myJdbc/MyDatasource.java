@@ -60,7 +60,7 @@ public class MyDatasource {
                 // 创建RealConnection
                 Connection realConnection = DriverManager.getConnection(url, user, password);
                 // 将RealConnection传入createProxyConnection()，得到代理连接并加入池中，currentIdleCount++
-                MyDatasource.connectionsPool.addLast(this.createProxyConnection(realConnection));
+                this.connectionsPool.addLast(this.createProxyConnection(realConnection));
                 currentIdleCount++;
             }
             System.out.println("-------连接池初始化结束，共初始化" + this.currentIdleCount + "个Connection-------");
@@ -86,10 +86,10 @@ public class MyDatasource {
                     // 创建RealConnection
                     Connection realConnection = DriverManager.getConnection(url, user, password);
                     // 将RealConnection传入createProxyConnection()，得到代理连接并加入池中,currentIdleCount++
-                    MyDatasource.connectionsPool.addLast(this.createProxyConnection(realConnection));
+                    this.connectionsPool.addLast(this.createProxyConnection(realConnection));
                     currentIdleCount++;
                 }
-                return MyDatasource.connectionsPool.removeFirst();
+                return this.connectionsPool.removeFirst();
             }
 
             /*
@@ -121,7 +121,6 @@ public class MyDatasource {
                 this.getClass().getClassLoader(),
                 realConnection.getClass().getInterfaces(),
                 new InvocationHandler() {
-                    @Override
                     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                         // 对close()方法进行拦截
                         if ("close".equals(method.getName())) {
