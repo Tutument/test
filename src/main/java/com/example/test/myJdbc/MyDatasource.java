@@ -48,7 +48,9 @@ public class MyDatasource {
     // 数据源创建连接的次数
     private static int createCount = 0;
 
-    // LinkedList充当连接池，removeFirst取出连接，addLast归还连接
+    /**
+     * LinkedList充当连接池，removeFirst取出连接，addLast归还连接
+     */
     private final static LinkedList<Connection> connectionsPool = new LinkedList<Connection>();
 
     /**
@@ -63,7 +65,7 @@ public class MyDatasource {
                 MyDatasource.connectionsPool.addLast(this.createProxyConnection(realConnection));
                 currentIdleCount++;
             }
-            System.out.println("-------连接池初始化结束，共初始化" + this.currentIdleCount + "个Connection-------");
+            System.out.println("-------连接池初始化结束，共初始化" + MyDatasource.currentIdleCount + "个Connection-------");
         } catch (SQLException e) {
             throw new ExceptionInInitializerError(e);
         }
