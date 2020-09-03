@@ -36,12 +36,13 @@ public class DataSourceTest {
 
             // 4.处理结果
             while (rs.next()) {
-                System.out.println(rs.getObject(1) + "\t" + rs.getObject(2));
+               // System.out.println(rs.getObject(1) + "\t" + rs.getObject(2));
             }
 
             // 5.收集连接
             connectionsToBeClosed.add(conn);
         }
+        System.out.println(MyDatasource.getCurrentIdleCount()+"**************");
 
         /*
          *  集中释放连接，会产生一个现象：

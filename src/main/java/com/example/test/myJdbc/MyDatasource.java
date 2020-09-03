@@ -45,6 +45,15 @@ public class MyDatasource {
     private static int maxIdleCount = 10;
     // 当前池中连接数
     private static int currentIdleCount = 0;
+
+    public static int getCurrentIdleCount() {
+        return currentIdleCount;
+    }
+
+    public static void setCurrentIdleCount(int currentIdleCount) {
+        MyDatasource.currentIdleCount = currentIdleCount;
+    }
+
     // 数据源创建连接的次数
     private static int createCount = 0;
 
@@ -119,6 +128,8 @@ public class MyDatasource {
         final Connection realConnection = realConn;
 
         // 动态代理：返回Connection代理对象
+        //target.getClass().getClassLoader() 给一个类加载器
+        //target.getClass().getInterfaces() 被代理对象的接口 此target必须是被代理对象
         Connection proxyConnection = (Connection) Proxy.newProxyInstance(
                 this.getClass().getClassLoader(),
                 realConnection.getClass().getInterfaces(),
