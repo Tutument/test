@@ -1,30 +1,20 @@
 package com.example.test.algorithm.sorttest;
 
-public class Test_02_SelectionSort {
+public class Test_03_InsertionSort {
 
     public static void sort(int[] arr){
-        if(arr == null || arr.length < 2){
+        if( arr == null || arr.length < 2){
             return;
         }
 
-        for(int i = 0; i < arr.length - 1; i++){
-            int minIndex = i;
-            for(int j = i + 1; j < arr.length; j++){
-                minIndex = arr[j] < arr[minIndex] ? j : minIndex;
+        for(int i = 1; i < arr.length ; i++){
+            for(int j = i ; j > 0 && arr[j] < arr[j-1]; j--){
+                swap(arr,j,j-1);
             }
-            swap(arr,i,minIndex);
         }
 
     }
-
     public static void swap(int[] arr, int i, int j) {
-        int tmp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = tmp;
-    }
-
-    //TODO 这种排序不正确
-    public static void swap1(int[] arr, int i, int j) {
         arr[i] = arr[i] ^ arr[j];
         arr[j] = arr[i] ^ arr[j];
         arr[i] = arr[i] ^ arr[j];
