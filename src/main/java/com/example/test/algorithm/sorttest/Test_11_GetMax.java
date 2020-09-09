@@ -7,13 +7,13 @@ public class Test_11_GetMax {
 
     public static int getMax(int[] arr) {
 
-        return max(arr, 0, arr.length);
+        return max(arr, 0, arr.length-1);
     }
 
     public static int max(int[] arr, int l, int r) {
 
         if (l == r) {
-            return l;
+            return arr[l];
         }
         int mid = (l + r) / 2;
         int leftMax = max(arr, l, mid);
@@ -22,7 +22,7 @@ public class Test_11_GetMax {
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[]{2, 1, 4, 6, 3, 5};
+        int[] arr = new int[]{2, 1, 4, 6, 3};
         System.out.println(getMax(arr));
     }
 }
