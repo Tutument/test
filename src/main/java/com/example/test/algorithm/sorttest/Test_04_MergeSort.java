@@ -23,6 +23,7 @@ public class Test_04_MergeSort {
         merge(arr,l,mid,r);
     }
 
+    //外排
     public static void merge(int[] arr, int l, int m, int r) {
         int i = 0;
         int[] help = new int[r - l + 1];
