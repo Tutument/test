@@ -1,5 +1,8 @@
 package com.example.test.algorithm.sorttest;
 
+/**
+ * 选择排序
+ */
 public class Test_02_SelectionSort {
 
     public static void sort(int[] arr){
