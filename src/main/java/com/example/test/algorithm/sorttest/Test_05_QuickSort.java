@@ -21,18 +21,19 @@ public class Test_05_QuickSort {
     public static int[] partition(int[] arr, int l, int r) {
 
         int less = l - 1;
-        int more = r + 1;
-        int cur = r;
+        int more = r;
+        //int cur = r;
         while (l < more) {
-            if (arr[l] < arr[cur]) {
+            if (arr[l] < arr[r]) {
                 swap(arr, l++, ++less);
-            } else if (arr[l] > arr[cur]) {
+            } else if (arr[l] > arr[r]) {
                 swap(arr, l, --more);
             } else {
                 l++;
             }
         }
-        return new int[]{less + 1, more - 1};
+        swap(arr, r, more);
+        return new int[]{less, more};
     }
 
     public static void swap(int[] arr, int i, int j) {
@@ -42,7 +43,7 @@ public class Test_05_QuickSort {
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[]{2, 1, 4, 6, 3, 5};
+        int[] arr = new int[]{2, 1, 4, 6, 3, 5, 9, 7, 6};
         sort(arr);
         for (int i = 0; i < arr.length; i++) {
             System.out.println(arr[i]);
