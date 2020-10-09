@@ -1,7 +1,9 @@
 package com.example.test.ThisTest;
 
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.Assert;
 
+import java.util.Objects;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -15,10 +17,22 @@ public class Test {
 
         //ass(null);
 
-        ReentrantLock lock;
+        //ReentrantLock lock;
 
-        f();
+        //f();
 
+        /*JSONObject jsonObject = new JSONObject();
+        String aa = jsonObject.getString("aa");
+        System.out.println(aa);*/
+       /* JSONObject jsonObject = new JSONObject();
+        String aa = jsonObject.getString("aa");
+        System.out.println(aa);
+*/
+        JSONObject jsonObject = new JSONObject();
+
+        String a = jsonObject.getString("a");
+       System.out.println(a);
+       //Objects;
     }
     public static void ass(String name){
         Assert.notNull(name, "Name must not be null!");

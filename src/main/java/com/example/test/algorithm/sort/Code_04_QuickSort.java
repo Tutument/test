@@ -99,7 +99,7 @@ public class Code_04_QuickSort {
 	}
 
 	// for test
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		int testTime = 500000;
 		int maxSize = 100;
 		int maxValue = 100;
@@ -123,6 +123,14 @@ public class Code_04_QuickSort {
 		quickSort(arr);
 		printArray(arr);
 
+	}*/
+
+	public static void main(String[] args) {
+		int[] arr = new int[]{2, 1, 4, 6, 3, 5,9,7,6};
+		quickSort(arr);
+		for (int i = 0; i < arr.length; i++) {
+			System.out.println(arr[i]);
+		}
 	}
 
 }
