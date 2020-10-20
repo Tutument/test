@@ -3,6 +3,10 @@ package com.example.test.ThisTest;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.Assert;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.Objects;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -33,6 +37,9 @@ public class Test {
         String a = jsonObject.getString("a");
        System.out.println(a);
        //Objects;
+        FileInputStream inputStream;
+        Socket socket;
+        ServerSocket serverSocket;
     }
     public static void ass(String name){
         Assert.notNull(name, "Name must not be null!");
