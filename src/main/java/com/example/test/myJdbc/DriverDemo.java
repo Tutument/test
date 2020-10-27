@@ -1,6 +1,6 @@
 package com.example.test.myJdbc;
 
-import org.junit.Test;
+
 
 import java.sql.Connection;
 import java.sql.Driver;
@@ -10,7 +10,7 @@ import java.util.Properties;
 
 public class DriverDemo {
 
-    @Test
+    //@Test
     public void testDriver() throws SQLException {
         Driver driver = new com.mysql.cj.jdbc.Driver();
 
@@ -25,7 +25,7 @@ public class DriverDemo {
         System.out.println(connection);
     }
 
-    @Test
+    //@Test
     public void testDriverManager() throws Exception{
         //1. 驱动的全类名
         String driverClass = "com.mysql.jdbc.Driver";

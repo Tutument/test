@@ -62,11 +62,11 @@ public class Screw {
      */
     public static ProcessConfig getProcessConfig() {
         // 忽略表名
-        List<String> ignoreTableName = Arrays.asList("a", "test_group");
+        List<String> ignoreTableName = Arrays.asList("");
         // 忽略表前缀，如忽略a开头的数据库表
-        List<String> ignorePrefix = Arrays.asList("a", "t");
+        List<String> ignorePrefix = Arrays.asList("");
         // 忽略表后缀
-        List<String> ignoreSuffix = Arrays.asList("_test", "czb_");
+        List<String> ignoreSuffix = Arrays.asList("");
         return ProcessConfig.builder()
                 //根据名称指定表生成
                 .designatedTableName(Arrays.asList("t_app_allowlist"))

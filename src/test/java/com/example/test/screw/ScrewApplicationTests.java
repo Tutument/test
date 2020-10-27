@@ -7,15 +7,18 @@ import cn.smallbun.screw.core.engine.EngineTemplateType;
 import cn.smallbun.screw.core.execute.DocumentationExecute;
 import cn.smallbun.screw.core.process.ProcessConfig;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@RunWith(SpringRunner.class)
 @SpringBootTest
 public class ScrewApplicationTests {
 
@@ -61,7 +64,7 @@ public class ScrewApplicationTests {
         List<String> ignoreSuffix = Arrays.asList("_test", "czb_");
         return ProcessConfig.builder()
                 //根据名称指定表生成
-                .designatedTableName(Arrays.asList("user","user1"))
+                .designatedTableName(Arrays.asList("sys_autonumber","t_init_config","t_sam_id_black_list","t_seal","t_session_random"))
                 //根据表前缀生成
                 .designatedTablePrefix(new ArrayList<>())
                 //根据表后缀生成
