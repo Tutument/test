@@ -7,14 +7,22 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class TimeTest {
-
+    static DateTimeFormatter pattern = DateTimeFormatter.ofPattern("yyyyMMdd:HHmmss");
 
     public static void main(String[] args) {
 
-        dateToString();
-        dateToStringNew();
+        //dateToString();
+        //dateToStringNew();
         //stringToDate();
         //stringToDateNew();
+        test();
+    }
+
+    public static void test(){
+        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime after = now.plusMinutes(6);
+        String dateStr = now.format(pattern) + after.format(pattern);
+        System.out.println(dateStr);
     }
     //Date转String
     public static void dateToString(){
@@ -28,11 +36,16 @@ public class TimeTest {
     public static void dateToStringNew(){
         //使用jdk1.8 LocalDateTime和DateTimeFormatter
         LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter pattern = DateTimeFormatter.ofPattern("G yyyy年MM月dd号 E a hh时mm分ss秒");
+        LocalDateTime localDateTime = now.plusMinutes(6);
+        DateTimeFormatter pattern = DateTimeFormatter.ofPattern("yyyyMMdd:HHmmss");
         String format = now.format(pattern);
+        String f = localDateTime.format(pattern);
         System.out.println(format);
+        System.out.println(f);
         //打印: 公元 2017年03月21号 星期二 下午 06时38分20秒
     }
+
+
 
     //
     public static void stringToDate(){

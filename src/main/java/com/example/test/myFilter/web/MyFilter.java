@@ -15,7 +15,7 @@ public class MyFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         System.out.println("filter start");
-       if(true){
+       if(false){
            response.setContentType("text/plain");
            String resdata = "哈哈，你个黑户不能进的奥";
            response.setContentLength(resdata.getBytes().length);
