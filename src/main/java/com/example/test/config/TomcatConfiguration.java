@@ -29,7 +29,7 @@ public class TomcatConfiguration {
         };
     }
 
-    @Bean
+    //@Bean
     public ServletRegistrationBean myServlet() {
         ServletRegistrationBean<Servlet> registrationBean = new ServletRegistrationBean<>();
         //registrationBean.setServlet( );

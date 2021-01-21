@@ -1,14 +1,16 @@
 package com.example.test;
 
+import ch.qos.logback.core.encoder.ByteArrayUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.example.test.jvm.TestClass;
 
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Method;
 
 public class Test {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnsupportedEncodingException {
         /*Test test = new Test();
         int inc = test.inc();
         System.out.println(inc);
@@ -27,6 +29,11 @@ public class Test {
         str(string2);
 
         System.out.println(System.getProperty("user.dir"));
+
+        System.out.println("a".getBytes("UTF-8").length);
+        System.out.println("噶".getBytes("UTF-8").length);
+        System.out.println(ByteArrayUtil.toHexString("a".getBytes("UTF-8")));
+        System.out.println(ByteArrayUtil.toHexString("噶".getBytes("UTF-8")));
     }
 
 

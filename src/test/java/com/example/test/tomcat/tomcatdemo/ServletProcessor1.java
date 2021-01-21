@@ -1,4 +1,4 @@
-package com.example.test.tomcat;
+package com.example.test.tomcat.tomcatdemo;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletRequest;

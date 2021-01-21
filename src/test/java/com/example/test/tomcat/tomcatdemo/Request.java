@@ -1,4 +1,4 @@
-package com.example.test.tomcat;
+package com.example.test.tomcat.tomcatdemo;
 
 import java.io.IOException;
 import java.io.InputStream;
