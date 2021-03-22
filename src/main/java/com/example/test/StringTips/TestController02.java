@@ -18,8 +18,4 @@ public class TestController02 {
         }
         return "ReadTimeOut";
     }
-
-    public void test(){
-
-    }
 }
