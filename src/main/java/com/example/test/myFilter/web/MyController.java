@@ -1,5 +1,6 @@
 package com.example.test.myFilter.web;
 
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -41,5 +42,15 @@ public class MyController  {
         System.out.println("haha2"+session.getId());
         System.out.println("haha2"+session1.getId());
         return "haha2";
+    }
+
+    @RequestMapping("/hi3")
+    @ResponseBody
+    public String hi3(HttpServletRequest request){
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("name","10");
+        jsonObject.put("age","11");
+        return jsonObject.toJSONString();
     }
 }

@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 
 public class PicUtils {
 
@@ -72,4 +73,6 @@ public class PicUtils {
         }
         return accuracy;
     }
+
+
 }

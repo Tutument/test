@@ -3,7 +3,7 @@ package com.example.test.myaop.sourcecode;
 import java.lang.reflect.*;
 import java.util.Objects;
 
-import static java.lang.reflect.Proxy.getProxyClass0;
+//import static java.lang.reflect.Proxy.getProxyClass0;
 
 public class ProviderHandler implements InvocationHandler {
     Object target;

@@ -16,6 +16,9 @@ public class MyInterceptor implements HandlerInterceptor {
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) {
+        response.addHeader("appID","123456");
+        String appID = response.getHeader("appID");
+        System.out.println("appID: "+appID);
         System.out.println("postHandler...");
     }
 

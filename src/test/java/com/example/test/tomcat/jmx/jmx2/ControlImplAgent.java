@@ -1,12 +1,12 @@
 package com.example.test.tomcat.jmx.jmx2;
 
-import com.sun.jdmk.comm.HtmlAdaptorServer;
+
 
 import javax.management.*;
 
 public class ControlImplAgent {
 
-    public static void main(String[] args) throws MalformedObjectNameException, NullPointerException, InstanceAlreadyExistsException, MBeanRegistrationException, NotCompliantMBeanException {
+   /* public static void main(String[] args) throws MalformedObjectNameException, NullPointerException, InstanceAlreadyExistsException, MBeanRegistrationException, NotCompliantMBeanException {
 
         // 创建MBeanServer
         MBeanServer server = MBeanServerFactory.createMBeanServer();
@@ -24,6 +24,6 @@ public class ControlImplAgent {
 
         adapter.start();
         //adapter.stop();
-    }
+    }*/
 
 }

@@ -1,5 +1,7 @@
 package com.example.test.algorithm.sort;
 
+import com.example.test.lock.DeadLock;
+
 import java.util.Arrays;
 
 public class Code_01_InsertionSort {
@@ -79,14 +81,16 @@ public class Code_01_InsertionSort {
 
 	// for test
 	public static void main(String[] args) {
-		int testTime = 500000;
+		int testTime = 5000;
 		int maxSize = 100;
 		int maxValue = 100;
 		boolean succeed = true;
 		for (int i = 0; i < testTime; i++) {
 			int[] arr1 = generateRandomArray(maxSize, maxValue);
 			int[] arr2 = copyArray(arr1);
-			insertionSort(arr1);
+			//DeadLock.heapSort(arr1);
+			DeadLock.quickSort(arr1);
+			//insertionSort(arr1);
 			comparator(arr2);
 			if (!isEqual(arr1, arr2)) {
 				succeed = false;
@@ -97,7 +101,9 @@ public class Code_01_InsertionSort {
 
 		int[] arr = generateRandomArray(maxSize, maxValue);
 		printArray(arr);
-		insertionSort(arr);
+		//DeadLock.heapSort(arr);
+		DeadLock.quickSort(arr);
+		//insertionSort(arr);
 		printArray(arr);
 	}
 

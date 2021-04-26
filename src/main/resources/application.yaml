@@ -12,3 +12,7 @@ spring:
     static-path-pattern: /**
   resources:
     static-locations: classpath:/templates/,classpath:/static/
+  profiles:
+    active: test
+logging:
+  config: classpath:logback-spring.xml
