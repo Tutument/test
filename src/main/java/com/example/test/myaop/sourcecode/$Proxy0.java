@@ -22,6 +22,7 @@ public final class $Proxy0 extends Proxy implements IProvider {
         super(var1);
     }
 
+
     public final boolean equals(Object var1)   {
         try {
             return ((Boolean)super.h.invoke(this, m1, new Object[]{var1})).booleanValue();

@@ -59,4 +59,5 @@ public class ProviderHandler implements InvocationHandler {
 
     private static final Class<?>[] constructorParams =
             { InvocationHandler.class };
+
 }

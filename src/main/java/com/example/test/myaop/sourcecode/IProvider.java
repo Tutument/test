@@ -4,4 +4,5 @@ public interface IProvider {
 
     Object getData(String json);
 
+
 }

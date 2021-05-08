@@ -10,4 +10,5 @@ public class SimpleProvider implements IProvider {
     public String parseJson(String string){
         return string;
     }
+
 }
